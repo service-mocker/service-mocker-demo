@@ -1,0 +1,45 @@
+{
+  "name": "service-mocker-demo",
+  "version": "0.0.1",
+  "description": "service-mocker demo",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node serve.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idiotWu/service-mocker-demo.git"
+  },
+  "keywords": [
+    "service",
+    "mocker",
+    "demo"
+  ],
+  "authors": [
+    "Vincent Bel (https://github.com/VincentBel)",
+    "Dolphin Wood (https://github.com/idiotWu)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idiotWu/service-mocker-demo/issues"
+  },
+  "homepage": "https://github.com/idiotWu/service-mocker-demo#readme",
+  "dependencies": {
+    "service-mocker": "github:vincentbel/service-mocker#b411695"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "eslint": "^3.13.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "express": "^4.14.0",
+    "express-urlrewrite": "^1.2.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0"
+  }
+}
