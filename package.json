@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/idiotWu/service-mocker-demo#readme",
   "dependencies": {
-    "service-mocker": "github:vincentbel/service-mocker#69f0662"
+    "service-mocker": "github:idiotWu/service-mocker-build#55f1dd5"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
