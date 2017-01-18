@@ -1,0 +1,58 @@
+{
+  "name": "service-mocker-demo",
+  "version": "0.0.1",
+  "description": "service-mocker demo",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "rimraf ./build/*",
+    "copy:html": "cpx './src/**/*.html' ./build/",
+    "start": "cross-env NODE_ENV=development node serve.js",
+    "preprod": "npm run build",
+    "prod": "node serve.prod.js",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --color -p",
+    "postbuild": "npm run copy:html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idiotWu/service-mocker-demo.git"
+  },
+  "keywords": [
+    "service",
+    "mocker",
+    "demo"
+  ],
+  "authors": [
+    "Vincent Bel (https://github.com/VincentBel)",
+    "Dolphin Wood (https://github.com/idiotWu)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idiotWu/service-mocker-demo/issues"
+  },
+  "homepage": "https://github.com/idiotWu/service-mocker-demo#readme",
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "service-mocker": "github:idiotWu/service-mocker-build#55f1dd5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.16.0",
+    "cpx": "^1.5.0",
+    "cross-env": "^3.1.4",
+    "eslint": "^3.13.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "express": "^4.14.0",
+    "express-urlrewrite": "^1.2.0",
+    "json-loader": "^0.5.4",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0"
+  }
+}
