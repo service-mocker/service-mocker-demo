@@ -8,30 +8,18 @@ function initApp() {
   const postContent = document.getElementById('post');
   const commentContent = document.getElementById('comment');
 
-  function getPost() {
+  async function getPost() {
     const postId = document.getElementById('postIdInput').value;
-    fetch(`/posts/${postId}`)
-    .then(response => response.json())
-    .then(res => {
-      if (res.error) {
-        postContent.innerHTML = res.error.message;
-      } else {
-        postContent.innerHTML = `<pre>${JSON.stringify(res, null, 2)}</pre>`;
-      }
-    });
+    const response = await fetch(`/posts/${postId}`);
+    const result = await response.json();
+    postContent.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
   }
 
-  function getComment() {
+  async function getComment() {
     const commentId = document.getElementById('commentIdInput').value;
-    fetch(`/posts/101/comments/${commentId}`)
-    .then(response => response.json())
-    .then(res => {
-      if (res.error) {
-        commentContent.innerHTML = res.error.message;
-      } else {
-        commentContent.innerHTML = `<pre>${JSON.stringify(res, null, 2)}</pre>`;
-      }
-    });
+    const response = await fetch(`/posts/101/comments/${commentId}`);
+    const result = await response.json();
+    commentContent.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
   }
 
   document.getElementById('getPostButton').onclick = getPost;

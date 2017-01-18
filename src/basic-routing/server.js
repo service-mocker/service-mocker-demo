@@ -26,22 +26,22 @@ router.get('/cats', (req, res) => {
   res.json(catIds.map(id => catsById[id]));
 });
 
-router.post('/cats', (req, res) => {
-  req.json().then(({ name }) => {
-    const newCat = {
-      id: nextId,
-      name,
-    };
+router.post('/cats', async (req, res) => {
+  const { name } = await req.json();
+  const newCat = {
+    id: nextId,
+    name,
+  };
 
-    catsById[nextId] = newCat;
-    catIds.push(nextId);
-    nextId += 1;
+  catsById[nextId] = newCat;
+  catIds.push(nextId);
+  nextId += 1;
 
-    res.json(newCat);
-  });
-});
+  res.json(newCat);
+}
+);
 
-router.put('/cats/:id', (req, res) => {
+router.put('/cats/:id', async (req, res) => {
   const { id } = req.params;
   const cat = catsById[id];
   if (!cat) {
@@ -50,13 +50,12 @@ router.put('/cats/:id', (req, res) => {
     });
   }
 
-  req.json().then(({ name }) => {
-    if (name) {
-      cat.name = name;
-    }
+  const { name } = await req.json();
+  if (name) {
+    cat.name = name;
+  }
 
-    res.json(cat);
-  });
+  res.json(cat);
 });
 
 router.delete('/cats/:id', (req, res) => {

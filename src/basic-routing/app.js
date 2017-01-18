@@ -7,35 +7,38 @@ client.ready.then(initApp);
 function initApp() {
   const catList = document.getElementById('catList');
 
-  function addCat(name) {
-    fetch('/cats', {
+  async function addCat(name) {
+    await fetch('/cats', {
       method: 'POST',
       header: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name }),
-    })
-      .then(getCats);
+    });
+
+    getCats();
   }
 
-  function updateCat(id, name) {
-    fetch(`/cats/${id}`, {
+  async function updateCat(id, name) {
+    await fetch(`/cats/${id}`, {
       method: 'PUT',
       header: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name }),
-    })
-      .then(getCats);
+    });
+
+    getCats();
   }
 
-  function deleteCat(id) {
-    fetch(`/cats/${id}`, {
+  async function deleteCat(id) {
+    await fetch(`/cats/${id}`, {
       method: 'DELETE',
-    })
-      .then(getCats);
+    });
+
+    getCats();
   }
 
   function showCats(cats) {
@@ -76,10 +79,10 @@ function initApp() {
     catList.appendChild(li);
   }
 
-  function getCats() {
-    fetch(`/cats`)
-      .then(response => response.json())
-      .then(showCats);
+  async function getCats() {
+    const response = await fetch(`/cats`);
+    const cats = await response.json();
+    showCats(cats);
   }
 
   document.getElementById('getMyCats').onclick = getCats;
