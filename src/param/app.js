@@ -22,6 +22,6 @@ function initApp() {
     commentContent.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
   }
 
-  document.getElementById('getPostButton').onclick = getPost;
-  document.getElementById('getCommentButton').onclick = getComment;
+  document.getElementById('getPostButton').addEventListener('click', getPost);
+  document.getElementById('getCommentButton').addEventListener('click', getComment);
 }

@@ -54,8 +54,8 @@ function initApp() {
       input.value = catName;
       updateButton.textContent = 'update';
       deleteButton.textContent = 'delete';
-      updateButton.onclick = () => updateCat(catId, input.value);
-      deleteButton.onclick = () => deleteCat(catId);
+      updateButton.addEventListener('click', () => updateCat(catId, input.value));
+      deleteButton.addEventListener('click', () => deleteCat(catId));
 
       const li = document.createElement('li');
       li.appendChild(input);
@@ -70,7 +70,7 @@ function initApp() {
 
     addCatButton.textContent = 'add';
 
-    addCatButton.onclick = () => addCat(addCatInput.value);
+    addCatButton.addEventListener('click', () => addCat(addCatInput.value));
 
     const li = document.createElement('li');
     li.appendChild(addCatInput);
@@ -85,5 +85,5 @@ function initApp() {
     showCats(cats);
   }
 
-  document.getElementById('getMyCats').onclick = getCats;
+  document.getElementById('getMyCats').addEventListener('click', getCats);
 }

@@ -11,6 +11,9 @@ function initApp() {
     elem.innerHTML = await response.text();
   }
 
-  document.getElementById('apiV1Button').onclick = () => getUsers(1);
-  document.getElementById('apiV2Button').onclick = () => getUsers(2);
+  document.getElementById('apiV1Button')
+    .addEventListener('click', () => getUsers(1));
+
+  document.getElementById('apiV2Button')
+    .addEventListener('click', () => getUsers(2));
 }
