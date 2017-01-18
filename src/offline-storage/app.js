@@ -1,4 +1,5 @@
 import { createClient } from 'service-mocker/client';
+import { Logger } from 'utils';
 
 const client = createClient('server.js');
 
@@ -6,8 +7,13 @@ client.ready.then(initApp);
 
 function initApp() {
   const catList = document.getElementById('catList');
+  const resultLog = new Logger();
+
+  resultLog.appendTo(document.getElementById('result'));
 
   async function addCat(name) {
+    if (!name) return;
+
     await fetch('/cats', {
       method: 'POST',
       header: {
@@ -36,9 +42,13 @@ function initApp() {
   }
 
   async function getCats() {
+    resultLog.clear();
+
     const response = await fetch(`/cats`);
     const cats = await response.json();
     showCats(cats);
+
+    resultLog.log(cats);
   }
 
   document.getElementById('getMyCats').addEventListener('click', getCats);
