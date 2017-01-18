@@ -7,6 +7,7 @@ Demos for service-mocker.
 * Params ([source](./src/hello-world))
 * Multi Routers ([source](./src/hello-world))
 * Forward Requests ([source](./src/forward-request))
+* Offline Storage ([source](./src/offline-storage))
 
 ## Getting Started
 
