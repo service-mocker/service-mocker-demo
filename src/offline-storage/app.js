@@ -44,12 +44,27 @@ function initApp() {
   async function getCats() {
     resultLog.clear();
 
-    const response = await fetch(`/cats`);
+    const response = await fetch('/cats');
     const cats = await response.json();
     showCats(cats);
 
     resultLog.log(cats);
   }
 
+  async function clearCats() {
+    resultLog.clear();
+
+    const response = await fetch('/cats', {
+      method: 'DELETE',
+    });
+
+    const text = await response.text();
+
+    showCats([]);
+
+    resultLog.log(text);
+  }
+
   document.getElementById('getMyCats').addEventListener('click', getCats);
+  document.getElementById('clear').addEventListener('click', clearCats);
 }

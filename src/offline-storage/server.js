@@ -21,25 +21,30 @@ async function ensureSetted() {
 
 ensureSetted();
 
-router.get('/cats', async (req, res) => {
-  const cats = await store.getItem(CATS_KEY);
+router.route('/cats')
+  .get(async (req, res) => {
+    const cats = await store.getItem(CATS_KEY);
 
-  res.json(cats);
-});
+    res.json(cats);
+  })
+  .post(async (req, res) => {
+    const { name } = await req.json();
 
-router.post('/cats', async (req, res) => {
-  const { name } = await req.json();
+    const cats = await store.getItem(CATS_KEY);
 
-  const cats = await store.getItem(CATS_KEY);
+    const newCat = {
+      id: uuid(),
+      name,
+    };
 
-  const newCat = {
-    id: uuid(),
-    name,
-  };
+    cats.push(newCat);
 
-  cats.push(newCat);
+    await store.setItem(CATS_KEY, cats);
 
-  await store.setItem(CATS_KEY, cats);
+    res.json(newCat);
+  })
+  .delete(async (req, res) => {
+    await store.setItem(CATS_KEY, []);
 
-  res.json(newCat);
-});
+    res.status(200).send('meow');
+  });
