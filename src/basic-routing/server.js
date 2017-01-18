@@ -60,7 +60,7 @@ router.put('/cats/:id', (req, res) => {
 });
 
 router.delete('/cats/:id', (req, res) => {
-  const id = Number(req.params.id);
+  const id = parseInt(req.params.id, 10);
   const cat = catsById[id];
   if (!cat) {
     return res.status(404).json({

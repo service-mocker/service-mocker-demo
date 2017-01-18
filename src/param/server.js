@@ -52,7 +52,7 @@ router.get('/posts/:postId/comments/:commentId', (req, res) => {
     });
   }
 
-  const commentId = Number(req.params.commentId);
+  const commentId = parseInt(req.params.commentId, 10);
   if (post.comments.indexOf(commentId) === -1) {
     return res.status(404).json({
       error: { message: 'Comment not found!' },
