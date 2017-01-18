@@ -1,25 +1,29 @@
 import { createClient } from 'service-mocker/client';
+import { Logger } from 'utils';
 
 const client = createClient('server.js');
 
 client.ready.then(initApp);
 
 function initApp() {
-  const postContent = document.getElementById('post');
-  const commentContent = document.getElementById('comment');
+  const postLogger = new Logger();
+  const commentLogger = new Logger();
+
+  postLogger.appendTo(document.getElementById('post'));
+  commentLogger.appendTo(document.getElementById('comment'));
 
   async function getPost() {
+    postLogger.clear();
     const postId = document.getElementById('postIdInput').value;
     const response = await fetch(`/posts/${postId}`);
-    const result = await response.json();
-    postContent.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+    postLogger.log(await response.json());
   }
 
   async function getComment() {
+    commentLogger.clear();
     const commentId = document.getElementById('commentIdInput').value;
     const response = await fetch(`/posts/101/comments/${commentId}`);
-    const result = await response.json();
-    commentContent.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+    commentLogger.log(await response.json());
   }
 
   document.getElementById('getPostButton').addEventListener('click', getPost);

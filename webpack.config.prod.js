@@ -17,6 +17,12 @@ module.exports = {
     return entries;
   }, {}),
 
+  resolve: {
+    alias: {
+      utils: joinRoot('utils'),
+    },
+  },
+
   output: {
     path: joinRoot('build'),
     filename: '[name].js',
