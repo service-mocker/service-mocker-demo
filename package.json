@@ -37,7 +37,7 @@
   "dependencies": {
     "babel-runtime": "^6.20.0",
     "localforage": "^1.4.3",
-    "service-mocker": "github:idiotWu/service-mocker-build#55f1dd5",
+    "service-mocker": "^1.0.1",
     "service-mocker-polyfills": "^1.0.2",
     "uuid": "^3.0.1"
   },
