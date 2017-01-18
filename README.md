@@ -6,7 +6,7 @@ Demos for service-mocker.
 * Basic Routing ([source](./src/hello-world))
 * Param ([source](./src/hello-world))
 * Multi Router ([source](./src/hello-world))
-
+# Forward Requests ([source](./src/forward-request))
 
 ## Getting Started
 

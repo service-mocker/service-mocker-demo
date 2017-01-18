@@ -10,7 +10,10 @@ module.exports = {
 
   entry: fs.readdirSync(joinSrc()).reduce((entries, dir) => {
     if (fs.statSync(joinSrc(dir)).isDirectory()) {
-      entries[`${dir}/app`] = joinSrc(dir, 'app.js');
+      entries[`${dir}/app`] = [
+        'service-mocker-polyfills',
+        joinSrc(dir, 'app.js'),
+      ];
       entries[`${dir}/server`] = joinSrc(dir, 'server.js');
     }
 
