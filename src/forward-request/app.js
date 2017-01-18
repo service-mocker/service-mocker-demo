@@ -13,9 +13,9 @@ client.ready.then(() => {
   async function getAlbums() {
     resultLog.clear();
 
-    const request = await fetch(`/spotify/tracks?name=${encodeURIComponent(trackName.value)}`);
+    const response = await fetch(`/spotify/tracks?name=${encodeURIComponent(trackName.value)}`);
 
-    resultLog.log(await request.json());
+    resultLog.log(await response.json());
   }
 
   getAlbums();
