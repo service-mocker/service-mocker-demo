@@ -34,19 +34,15 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.json/, loader: 'json' },
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
     ],
   },
 
   plugins: [
-    // This helps ensure the builds are consistent if source hasn't changed:
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    // Try to dedupe duplicated modules, if any:
-    new webpack.optimize.DedupePlugin(),
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compress: {
         screw_ie8: true,
         warnings: false,
@@ -61,6 +57,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
     }),
   ],
 
