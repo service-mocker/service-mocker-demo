@@ -10,6 +10,6 @@ const tracksMap = {
 };
 
 router.base('/spotify').get('/tracks', (req, res) => {
-  const trackID = req.query.name;
-  res.forward(`https://api.spotify.com/v1/tracks/${tracksMap[trackID]}`);
+  const trackID = tracksMap[req.query.name];
+  res.forward(`https://api.spotify.com/v1/tracks/${trackID}`);
 });
