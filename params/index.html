@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Params - Service Mocker Demo</title>
+</head>
+<body>
+  <h1>Params Demo</h1>
+  <section>
+    Show post:
+    <span style="color: rgba(0, 0, 0, 0.5)">GET /post/<input id="postIdInput" value="101" /></span>
+    <button id="getPostButton">Show</button>
+  </section>
+  <section id="post"></section>
+  <hr />
+  <section>
+    Show comment:
+    <span style="color: rgba(0, 0, 0, 0.5)">GET /post/101/comments/<input id="commentIdInput" value="101" /></span>
+    <button id="getCommentButton">Show</button>
+  </section>
+  <section id="comment"></section>
+  <script src="app.js"></script>
+</body>
+</html>
