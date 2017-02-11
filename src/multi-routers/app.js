@@ -1,19 +1,25 @@
 import { createClient } from 'service-mocker/client';
+import { Logger } from 'utils';
 
 const client = createClient('server.js');
 
 client.ready.then(initApp);
 
 function initApp() {
+  const loggers = {
+    1: new Logger(document.getElementById('api-v1-content')),
+    2: new Logger(document.getElementById('api-v2-content')),
+  };
+
   async function getUsers(apiVersion) {
     const response = await fetch(`/api/v${apiVersion}/users`);
-    const elem = document.getElementById(`apiV${apiVersion}Content`);
-    elem.innerHTML = await response.text();
+
+    loggers[apiVersion].log(await response.json());
   }
 
-  document.getElementById('apiV1Button')
+  document.getElementById('api-v1-button')
     .addEventListener('click', () => getUsers(1));
 
-  document.getElementById('apiV2Button')
+  document.getElementById('api-v2-button')
     .addEventListener('click', () => getUsers(2));
 }

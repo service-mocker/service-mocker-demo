@@ -1,7 +1,9 @@
 export class Logger {
-  constructor() {
+  constructor(parent) {
     const pre = this.elem = document.createElement('pre');
     pre.style.cssText = 'padding: 1em; background: #f5f5f5';
+
+    this.appendTo(parent);
   }
 
   appendTo(parent) {
