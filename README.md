@@ -1,6 +1,6 @@
 # [service-mocker-demo](https://service-mocker.github.io/service-mocker-demo)
 
-Demos for service-mocker.
+Demos for service-mocker: https://service-mocker.github.io/service-mocker-demo
 
 * Hello World ([source](./src/hello-world))([demo](https://service-mocker.github.io/service-mocker-demo/hello-world))
 * Basic Routing ([source](./src/basic-routing))([demo](https://service-mocker.github.io/service-mocker-demo/basic-routing))
