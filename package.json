@@ -12,6 +12,7 @@
     "prebuild": "npm run lint && npm run clean",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --color -p",
     "postbuild": "npm run copy:html",
+    "deploy": "./deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -8,6 +8,8 @@ const joinSrc = joinRoot.bind(path, 'src');
 module.exports = {
   devtool: 'source-map',
 
+  bail: true,
+
   entry: fs.readdirSync(joinSrc()).reduce((entries, dir) => {
     if (fs.statSync(joinSrc(dir)).isDirectory()) {
       entries[`${dir}/app`] = [

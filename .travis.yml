@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - '6'
+before_install:
+  - openssl aes-256-cbc -K $encrypted_d4914b50150d_key -iv $encrypted_d4914b50150d_iv -in deploy-key.enc -out deploy-key -d
+install:
+  - npm install
+script:
+  - npm run build
+after_success:
+  - npm run deploy
+env:
+  global:
+    - COMMIT_AUTHOR_NAME="service-mocker-bot"
+    - COMMIT_AUTHOR_EMAIL="dolphin.w.e+mocker@gmail.com"
