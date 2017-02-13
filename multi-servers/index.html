@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Servers - Service Mocker Demo</title>
+</head>
+<body>
+  <h1>Multi Servers Demo</h1>
+  <section>
+    Local server
+    <span style="color: rgba(0, 0, 0, 0.5)">GET /users/<input id="api-local-uid" value="100" /></span>
+    <button id="api-local-button">Show</button>
+  </section>
+  <section id="api-local-content"></section>
+  <hr />
+  <section>
+    Remote server
+    <span style="color: rgba(0, 0, 0, 0.5)">GET https://a.com/users/<input id="api-remote-uid" value="100" /></span>
+    <button id="api-remote-button">Show</button>
+  </section>
+  <section id="api-remote-content"></section>
+  <script src="app.js"></script>
+</body>
+</html>
