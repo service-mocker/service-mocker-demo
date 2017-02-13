@@ -6,6 +6,7 @@ Demos for service-mocker: https://service-mocker.github.io/service-mocker-demo
 * Basic Routing ([source](./src/basic-routing))([demo](https://service-mocker.github.io/service-mocker-demo/basic-routing))
 * Params ([source](./src/params))([demo](https://service-mocker.github.io/service-mocker-demo/params))
 * Multi Routers ([source](./src/multi-routers))([demo](https://service-mocker.github.io/service-mocker-demo/multi-routers))
+* Multi Servers ([source](./src/multi-servers))([demo](https://service-mocker.github.io/service-mocker-demo/multi-servers))
 * Forward Requests ([source](./src/forward-request))([demo](https://service-mocker.github.io/service-mocker-demo/forward-request))
 * Offline Storage ([source](./src/offline-storage))([demo](https://service-mocker.github.io/service-mocker-demo/offline-storage))
 
