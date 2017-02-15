@@ -9,7 +9,7 @@ const tracksMap = {
   'なんでもないや': '59pUIlXjQupbiYwt40uUTi',
 };
 
-router.base('/spotify').get('/tracks', (req, res) => {
+router.scope('/spotify').get('/tracks', (req, res) => {
   const trackID = tracksMap[req.query.name];
   res.forward(`https://api.spotify.com/v1/tracks/${trackID}`);
 });
